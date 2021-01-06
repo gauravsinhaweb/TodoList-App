@@ -3,6 +3,6 @@
 
 ### TodoList-App:
 
-## This is my first React app. It is a CRUD App where you can Create, Read, Update and Delete the data.  
-## It is a simple note-taking platform, where you can write all the important to-dos and delete the tasks after they're done. 
-## The application is basically connected to google firebase.
+ This is my first React app. It is a CRUD App where you can Create, Read, Update and Delete the data.  
+ It is a simple note-taking platform, where you can write all the important to-dos and delete the tasks after they're done. 
+ The application is basically connected to google firebase.
