@@ -4,7 +4,6 @@ import { ListItemText, ButtonGroup, Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import "./Hero.css";
-import Svg from "./Svg.svg";
 
 function Todo(props) {
   const [state, setState] = useState(false);
@@ -60,7 +59,6 @@ function Todo(props) {
         </ButtonGroup>
         <hr className="hr" />
       </div>
-      <img src={Svg} alt="" className="svg" />
     </>
   );
 }
