@@ -17,7 +17,6 @@ import { TextField, Button } from "@material-ui/core";
 export default function App() {
   const [todos, setTodos] = useState([""]);
   const [input, setInput] = useState("");
-  const classes = useState("");
   useEffect(() => {
     db.collection("todos")
       .orderBy("timestamp", "desc")
@@ -39,14 +38,14 @@ export default function App() {
   };
 
   return (
-    <div className="container text-center align-item-center bg-dark">
+    <>
       <h1 className="heading">Todo-List</h1>
       <form className="form">
         <TextField
           InputLabelProps={{
             style: { color: "#fff" },
           }}
-          className="textfield"
+          className="input"
           value={input}
           onChange={(event) => setInput(event.target.value)}
           id="standard-basic"
@@ -56,7 +55,6 @@ export default function App() {
         <Button
           variant="contained"
           size="large"
-          className={classes.margin}
           color="secondary"
           disabled={!input}
           type="submit"
@@ -80,6 +78,6 @@ export default function App() {
           <Todo todo={todo} />
         ))}
       </ul>
-    </div>
+    </>
   );
 }
