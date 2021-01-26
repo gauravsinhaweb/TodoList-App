@@ -40,7 +40,7 @@ export default function App() {
   return (
     <>
       <h1 className="heading">Todo-List</h1>
-      <form className="form">
+      <form className="form" autocomplete="off">
         <TextField
           InputLabelProps={{
             style: { color: "#fff" },
@@ -60,7 +60,7 @@ export default function App() {
           type="submit"
           onClick={addTodo}
         >
-          ADD{" "}
+          ADD
         </Button>
 
         {/* <AddCircleIcon
