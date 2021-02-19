@@ -28,8 +28,7 @@ function Todo(props) {
               placeholder={props.todo.todo}
               value={edit}
               onChange={(event) => setEdit(event.target.value)}
-              label="Filled"
-              variant="filled"
+              className="input_save"
             />
             <Button
               variant="contained"
