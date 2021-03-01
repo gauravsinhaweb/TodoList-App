@@ -1,9 +1,9 @@
 .body {
-  top: 10rem;
+  background-color: white;
+  border: 2px solid white;
   border-radius: 16px;
   width: 548px;
   margin: 20px auto;
-  background: #ffffff;
 }
 .heading {
   padding-top: 2rem;

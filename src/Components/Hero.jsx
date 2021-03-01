@@ -53,7 +53,7 @@ export default function App() {
         </form>
         <ul>
           {todos.map((todo, i) => (
-            <Todo todo={todo} />
+            <Todo todo={todo} key={todo.i} />
           ))}
         </ul>
       </div>
