@@ -8,7 +8,7 @@ import "./Hero.css";
 function Todo(props) {
   const [state, setState] = useState(false);
   const [edit, setEdit] = useState("");
-  const [save, setSave] = useState("false");
+  const [save, setSave] = useState();
 
   const editHandler = () => {
     db.collection("todos").doc(props.todo.id).set(
@@ -17,6 +17,7 @@ function Todo(props) {
       },
       { merge: true }
     );
+    setEdit("");
     setState(save);
   };
   return (
