@@ -2,7 +2,7 @@
   background-color: white;
   border: 2px solid white;
   border-radius: 16px;
-  width: 548px;
+  min-width: 548px;
   margin: 20px auto;
 }
 .heading {
@@ -26,4 +26,10 @@
 .input_save {
   outline: none;
   border: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .body {
+    min-width: 400px;
+  }
 }
