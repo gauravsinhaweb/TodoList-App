@@ -4,6 +4,9 @@ import React, { useState, useEffect } from "react";
 import db from "../firebase";
 import firebase from "firebase";
 import { TextField, Button } from "@material-ui/core";
+import animationData from "../Assets/rocket.json";
+import Lottie from "react-lottie";
+import TodoLottie from "../Assets/todo.json";
 
 export default function App() {
   const [todos, setTodos] = useState([""]);
@@ -18,6 +21,24 @@ export default function App() {
       });
   }, []);
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const TodoLott = {
+    loop: true,
+    autoplay: true,
+    animationData: TodoLottie,
+    TodoLottie,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
   const addTodo = (event) => {
     event.preventDefault(); //stop refreshing page ..store todos IMPORTANT!
     db.collection("todos").add({
@@ -29,8 +50,12 @@ export default function App() {
 
   return (
     <>
+      <div className="todo">
+        <Lottie options={TodoLott} height={50} width={50} />
+      </div>
       <div className="body">
-        <h1 className="heading">Todo-List</h1>
+        <h1 className="heading">Todo-List </h1>
+
         <form className="form" autocomplete="off">
           <TextField
             className="input"
@@ -39,23 +64,28 @@ export default function App() {
             id="standard-basic"
             label="Things to do.."
           />
-
-          <Button
-            variant="contained"
-            size="large"
-            color="secondary"
-            disabled={!input}
-            type="submit"
-            onClick={addTodo}
-          >
-            ADD
-          </Button>
+          <span className={input.length > 1 ? "display" : "displayNone"}>
+            {" "}
+            <Button
+              variant="contained"
+              size="large"
+              color="secondary"
+              disabled={!input}
+              type="submit"
+              onClick={addTodo}
+            >
+              ADD
+            </Button>
+          </span>
         </form>
         <ul>
           {todos.map((todo, i) => (
-            <Todo todo={todo} key={todo.i} />
+            <Todo todo={todo} key={i} />
           ))}
         </ul>
+        <div className="rocket">
+          <Lottie options={defaultOptions} height={100} width={100} />
+        </div>
       </div>
     </>
   );

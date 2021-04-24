@@ -7,27 +7,51 @@
 }
 .heading {
   padding-top: 2rem;
-  font-family: "Sedgwick Ave Display", cursive;
+  font-family: "dancing Script";
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.438);
-  color: black;
-  opacity: 0.5;
 }
 .hr {
   width: 100px;
   margin: auto;
 }
-.MuiTypography-displayBlock {
-  font-size: 20px !important;
-  font-family: "lato" !important;
-  margin-top: 1rem !important;
-  color: black !important;
+::placeholder {
   text-transform: capitalize;
 }
 .input_save {
   outline: none;
   border: none;
+  margin: 0;
+  padding: 0;
 }
-
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  margin: 0.5rem;
+}
+.display {
+  display: unset;
+}
+.displayNone {
+  display: none;
+}
+.MuiTypography-body1 {
+  font-size: 20px !important;
+  font-family: "karla" !important;
+}
+.input {
+  width: 15rem;
+}
+.todo {
+  position: fixed;
+  margin-left: 9rem;
+  margin-top: 3rem;
+  opacity: 0.7;
+}
+.rocket {
+  margin-top: 25em;
+  margin-right: 18rem;
+  opacity: 0.7;
+}
 @media only screen and (max-width: 600px) {
   .body {
     min-width: 400px;

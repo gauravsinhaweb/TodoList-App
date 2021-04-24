@@ -1,5 +1,8 @@
 .App {
-  background-color: #333333;
+  background-color: #0f171e;
   height: 100vh;
   display: flex;
+}
+Body {
+  font-family: "Dancing Script" !important;
 }
