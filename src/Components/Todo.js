@@ -67,7 +67,7 @@ function Todo(props) {
               className="input_save"
             />
 
-            <span className={edit.length > 1 ? "display" : "displayNone"}>
+            <span className={edit.length > 0 ? "display" : "displayNone"}>
               <Button
                 variant="contained"
                 size="small"

@@ -55,7 +55,7 @@ export default function App() {
             id="standard-basic"
             label="Things to do.."
           />
-          <span className={input.length > 1 ? "display" : "displayNone"}>
+          <span className={input.length > 0 ? "display" : "displayNone"}>
             {" "}
             <Button
               variant="contained"
