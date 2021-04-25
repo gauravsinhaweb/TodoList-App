@@ -17,7 +17,16 @@ function Todo(props) {
   const [save, setSave] = useState();
   const [toggle, setToggle] = useState(false);
   const [todos, setTodos] = useState();
-
+  const checkedHandler = () => {
+    setToggle(!toggle);
+    db.collection("todos").doc(props.todo.id).set(
+      {
+        toggleButton: !toggle,
+      },
+      { merge: true }
+    );
+    
+  };
   const editHandler = () => {
     db.collection("todos").doc(props.todo.id).set(
       {
@@ -47,21 +56,13 @@ function Todo(props) {
       fontSize: " 20px",
       fontFamily: "lato",
       marginTop: "1rem",
-      color: "#C0C0C0",
+      color: "#BC8F8F",
       textTransform: "capitalize",
       textDecoration: "line-through",
-      textDecorationColor: "#696969",
+      textDecorationColor: "#A0522D",
     },
   });
-  const checkedHandler = () => {
-    setToggle(!toggle);
-    db.collection("todos").doc(props.todo.id).set(
-      {
-        toggleButton: toggle,
-      },
-      { merge: true }
-    );
-  };
+
   const classes = useStyles();
   let toggleButton;
   todos &&
@@ -73,7 +74,7 @@ function Todo(props) {
       <ListItemText className={toggleButton ? classes.checked : classes.root}>
         {" "}
         <input
-          value="checked"
+          checked={toggleButton ? true : false}
           className={state ? "displayNone" : "checkbox"}
           type="checkbox"
           onClick={checkedHandler}
