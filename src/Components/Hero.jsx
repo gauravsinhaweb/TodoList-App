@@ -7,7 +7,7 @@ import { TextField, Button } from "@material-ui/core";
 import animationData from "../Assets/rocket.json";
 import Lottie from "react-lottie";
 
-export default function App() {
+export default function App({ toggle }) {
   const [todos, setTodos] = useState([""]);
   const [input, setInput] = useState("");
   useEffect(() => {
@@ -33,6 +33,7 @@ export default function App() {
     event.preventDefault(); //stop refreshing page ..store todos IMPORTANT!
     db.collection("todos").add({
       todo: input,
+      toggleButton: "",
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
     setInput("");

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import db from "../firebase";
 import {
   ListItemText,
   ButtonGroup,
   Button,
-  Checkbox,
   TextField,
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -17,6 +16,7 @@ function Todo(props) {
   const [edit, setEdit] = useState("");
   const [save, setSave] = useState();
   const [toggle, setToggle] = useState(false);
+  const [todos, setTodos] = useState();
 
   const editHandler = () => {
     db.collection("todos").doc(props.todo.id).set(
@@ -28,6 +28,13 @@ function Todo(props) {
     setEdit("");
     setState(save);
   };
+  useEffect(() => {
+    db.collection("todos")
+      .orderBy("timestamp")
+      .onSnapshot((snapshot) =>
+        setTodos(snapshot.docs.map((doc) => doc.data()))
+      );
+  }, []);
   const useStyles = makeStyles({
     root: {
       fontSize: " 20px",
@@ -46,17 +53,30 @@ function Todo(props) {
       textDecorationColor: "#696969",
     },
   });
+  const checkedHandler = () => {
+    setToggle(!toggle);
+    db.collection("todos").doc(props.todo.id).set(
+      {
+        toggleButton: toggle,
+      },
+      { merge: true }
+    );
+  };
   const classes = useStyles();
-
+  let toggleButton;
+  todos &&
+    todos.map((todo) => {
+      return (toggleButton = todo.toggleButton);
+    });
   return (
     <>
-      <ListItemText className={toggle ? classes.checked : classes.root}>
+      <ListItemText className={toggleButton ? classes.checked : classes.root}>
         {" "}
         <input
           value="checked"
           className={state ? "displayNone" : "checkbox"}
           type="checkbox"
-          onClick={() => setToggle(!toggle)}
+          onClick={checkedHandler}
         />
         {state ? (
           <form>

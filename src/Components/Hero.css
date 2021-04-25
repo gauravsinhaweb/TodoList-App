@@ -22,11 +22,13 @@
   border: none;
   margin: 0;
   padding: 0;
+  cursor: pointer;
 }
 .checkbox {
   width: 1rem;
   height: 1rem;
   margin: 0.5rem;
+  cursor: pointer;
 }
 .display {
   display: unset;
@@ -37,6 +39,7 @@
 .MuiTypography-body1 {
   font-size: 20px !important;
   font-family: "karla" !important;
+  cursor: default;
 }
 .input {
   width: 15rem;
